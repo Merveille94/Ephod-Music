@@ -71,7 +71,7 @@ const Tour = () => {
                     {/* View More Button */}
                     <div className="mt-12 text-center">
                         <Link
-                            href="#"
+                            href="/pages/events"
                             className="inline-block border border-gray-900 px-8 py-3 text-sm text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-300"
                         >
                             VIEW MORE EVENTS

@@ -42,7 +42,7 @@ const Discography = () => {
                 {/* View More Button */}
                 <div className="text-center mt-12">
                     <Link
-                        href="#"
+                        href="/pages/discography"
                         className="inline-block border border-gray-900 px-8 py-3 text-sm text-gray-900 hover:bg-gray-900 hover:text-white transition-colors duration-300"
                     >
                         VIEW MORE RELEASES

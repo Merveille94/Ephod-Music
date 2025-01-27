@@ -5,7 +5,7 @@ import Image from 'next/image'
 const ServicesHero = () => {
 
     return (
-        <div className="relative h-[60vh] w-full">
+        <div className="relative h-[55vh] w-full">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
