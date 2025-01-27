@@ -7,7 +7,7 @@ import Footer from "@/app/components/HomeComponents/Footer";
 export const metadata: Metadata = {
   title: "The Ephod Music",
   description: "Ephod Music is a passionate collective of gospel musicians committed to uplifting and inspiring audiences through powerful, soul-stirring performances",
-  icons: "images/Artboard 5.svg",
+  icons: "/images/Artboard 5.svg",
 };
 
 export default function RootLayout({

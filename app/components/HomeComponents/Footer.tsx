@@ -21,13 +21,13 @@ const Footer = () => {
                 </div>
 
                 {/* Email Signup */}
-                <div className="w-full max-w-md flex">
+                <div className="w-full max-w-md flex flex-col md:flex-row gap-2">
                     <input
                         type="email"
                         placeholder="your email"
-                        className="flex-1 px-4 py-2 text-black outline-none rounded-tl-lg rounded-bl-lg"
+                        className="flex-1 px-4 py-2 text-black outline-none rounded-lg"
                     />
-                    <button className="bg-orange-500 text-white px-6 py-2 hover:bg-orange-600 transition-colors rounded-tr-lg rounded-br-lg">
+                    <button className="bg-orange-500 text-white px-6 py-2 hover:bg-orange-600 transition-colors rounded-lg">
                         SIGN UP
                     </button>
                 </div>

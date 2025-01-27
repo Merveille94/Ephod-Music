@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const HeroHome = () => {
     const navItems = [
-        { id: 1, title: 'Artists', href: '/artists' },
-        { id: 2, title: 'Discography', href: '/discography' },
-        { id: 3, title: 'Services', href: '/services' },
-        { id: 4, title: 'Events', href: '/events' }
+        { id: 1, title: 'Artists', href: '/pages/artist' },
+        { id: 2, title: 'Discography', href: '/pages/discography' },
+        { id: 3, title: 'Services', href: '/pages/services' },
+        { id: 4, title: 'Events', href: '/pages/events' }
     ]
 
     return (
