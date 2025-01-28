@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Image from 'next/image';
 import { FaRegComment, FaRegClock, FaRegHeart } from 'react-icons/fa';
 
@@ -14,7 +13,7 @@ interface BlogPostProps {
     image: string;
 }
 
-const BlogPost: FC<BlogPostProps> = ({
+const BlogPost= ({
                                          title,
                                          author,
                                          category,
@@ -24,7 +23,7 @@ const BlogPost: FC<BlogPostProps> = ({
                                          paragraphs,
                                          date,
                                          image
-                                     }) => {
+                                     }: BlogPostProps) => {
     return (
         <div className="bg-gray-900 rounded-lg overflow-hidden">
             <div className="relative h-[400px] w-full">
