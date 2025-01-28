@@ -23,7 +23,7 @@ const DiscoList = () => {
             <div className="container mx-auto">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
                     {artists.map((artist) => (
-                        <Link href="#" key={artist.id}>
+                        <Link href="/pages/SignIn" key={artist.id}>
                             <div className="group relative aspect-square overflow-hidden">
                                 {/* Artist Image */}
                                 <Image
