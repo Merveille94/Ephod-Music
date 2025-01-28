@@ -8,7 +8,7 @@ const ArtistHero = () => {
             {/* Background Image setting */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/background.png"
+                    src="/images/Background.png"
                     alt="Concert performance"
                     fill
                     className="object-cover bg-center bg-contain"
