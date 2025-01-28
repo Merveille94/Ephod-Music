@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const ArtistHero = () => {
     return (
-        <div className="h-[40vh] w-full">
+        <div className="relative min-h-[40vh] w-full">
             {/* Background Image setting */}
             <div className="absolute inset-0">
                 <Image
