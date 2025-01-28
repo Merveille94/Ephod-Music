@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaVimeoV, FaYoutube } from "react-icons/fa";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Header = () => {
         { title: 'DISCOGRAPHY', path: '/pages/discography' },
         { title: 'ARTISTS', path: '/pages/artist' },
         { title: 'EVENTS', path: '/pages/events' },
-        { title: 'BLOG', path: '/blog' },
+        { title: 'BLOG', path: '/pages/blog' },
         { title: 'SERVICES', path: '/pages/services' },
         { title: 'ABOUT US', path: '/pages/about' },
         { title: 'CONTACT US', path: '/pages/contact' },
@@ -47,11 +48,23 @@ const Header = () => {
                             <li><Link href="#"><FaVimeoV size={18}/></Link></li>
                         </ul>
                     </div>
+
+                    <div>
+                        <SignedOut>
+                            <div className="text-sm border-2 border-blue-200 hover:border-green-900 rounded-lg p-2 hover:bg-gray-200 hover:text-black font-semibold">
+                                <SignInButton />
+                            </div>
+                        </SignedOut>
+                        <SignedIn>
+                            <div className=""><UserButton /></div>
+                        </SignedIn>
+                    </div>
+
                     <div>
                         <button onClick={toggleMenu}>
                             {isMenuOpen ?
                                 <IoMdClose size={30} className="pt-2"/> :
-                                <HiOutlineMenuAlt3 size={30} className="pt-2"/>
+                                <HiOutlineMenuAlt3 size={35} className="pt-2"/>
                             }
                         </button>
                     </div>

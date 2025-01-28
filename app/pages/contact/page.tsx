@@ -8,7 +8,10 @@ const Page = () => {
         <>
             <ContactHero/>
             <ContactUs/>
-            <Contact/>
+            <Contact
+                bgColor = "bg-gray-900"
+                textColor = "text-gray-200"
+            />
         </>
     )
 }
