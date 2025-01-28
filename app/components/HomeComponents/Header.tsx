@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
 import Link from "next/link";
@@ -9,6 +9,9 @@ import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false); // New state for background change
 
     const menuItems = [
         { title: 'HOME', path: '/' },
@@ -21,12 +24,46 @@ const Header = () => {
         { title: 'CONTACT US', path: '/pages/contact' },
     ];
 
+    // Scroll handler to hide/show navbar based on scroll
+    const handleScroll = () => {
+        const currentScrollPos = window.pageYOffset;
+        const isScrollingUp = currentScrollPos > prevScrollPos;
+        setShowNavbar(isScrollingUp || currentScrollPos < 100); // Show navbar when scrolling up or when near the top
+        setIsScrolled(currentScrollPos > 50); // Change background after scrolling down 50px
+        setPrevScrollPos(currentScrollPos);
+    };
+
+
+    // For the click outside screen
+    useEffect(() => {
+        const handleOutsideClick = (event: MouseEvent) => {
+            const target = event.target as HTMLElement; // Explicitly type the event target
+            if (isMenuOpen && !target.closest('.menu-container')) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [isMenuOpen]);
+
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [handleScroll, prevScrollPos]);
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <header className="bg-black text-white p-2 relative">
+        <header className={`fixed top-0 left-0 w-full z-20 flex justify-between items-center p-4 text-white bg-black transition-transform duration-300 ${
+            showNavbar ? "transform translate-y-0" : "transform -translate-y-full"
+        } ${isScrolled ? "bg-black" : "bg-transparent"}`}>
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex items-center justify-center">
@@ -72,7 +109,7 @@ const Header = () => {
             </div>
 
             {/* Dropdown Menu */}
-            <div className={`fixed top-0 right-0 h-screen w-full sm:w-80 bg-black transform transition-transform duration-300 ease-in-out z-20 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`menu-container fixed top-0 right-0 h-screen w-full sm:w-80 bg-black transform transition-transform duration-300 ease-in-out z-30  ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex justify-end p-4">
                     <button onClick={toggleMenu}>
                         <IoMdClose size={30}/>
@@ -93,6 +130,7 @@ const Header = () => {
                         ))}
                     </ul>
                 </nav>
+
 
                 {/* Mobile Social Icons */}
                 <div className="md:hidden absolute bottom-10 left-4">
