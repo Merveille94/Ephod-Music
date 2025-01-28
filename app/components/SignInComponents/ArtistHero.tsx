@@ -11,7 +11,7 @@ const ArtistHero = () => {
                     src="/images/Background.png"
                     alt="Concert performance"
                     fill
-                    className="object-cover bg-center bg-contain"
+                    className="object-cover bg-center"
                 />
             </div>
         </div>
