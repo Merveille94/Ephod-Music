@@ -10,6 +10,7 @@ const ArtistHero = () => {
                 <Image
                     src="/images/background.png"
                     alt="Concert performance"
+                    fill
                     className="object-cover bg-center bg-contain"
                 />
             </div>
