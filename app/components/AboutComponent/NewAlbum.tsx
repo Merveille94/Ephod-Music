@@ -49,6 +49,7 @@ const NewAlbum = () => {
 
                     {/* Track List Side */}
                     <div className="bg-zinc-900 rounded-lg p-6">
+                        <Image src="/images/tr1.png" alt="pic" width={500} height={500} className="object-cover"/>
                         {tracks.map((track, index) => (
                             <div
                                 key={index}
